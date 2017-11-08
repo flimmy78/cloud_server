@@ -43,6 +43,8 @@ extern "C" {
       
 
     typedef int (*DBM_EntityFilter)(const DBM_EntityType entityType, const void *pEntity);
+
+    #pragma pack(push, 1)
     typedef struct DBM_EntityOptions {
         DBM_EntityType                 entityType;           /* [in] which type of entity do you want to get */
         DBM_EntityFilter               filter;               /* [in] returns 0: do not use this entity; returns non-0: use this entity. Can be used to implement complex filters */
@@ -67,6 +69,7 @@ extern "C" {
            ret = DBM_getEntity(handle, &options);
          */
     } DBM_EntityOptions;
+    #pragma pack(pop)
         
 
     /** @brief Initialize this module.    
